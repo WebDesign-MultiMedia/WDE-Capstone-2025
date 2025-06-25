@@ -8,9 +8,9 @@
        <script src="https://kit.fontawesome.com/2b46095725.js" crossorigin="anonymous"></script>
     <title>Tracker World</title>
 </head>
-<body class="bg-green-200">
+<body>
         <!-- USER MODE CHOICE -->
-        <div id="userMode" class="flex flex-col items-center pb-20 pt-23 ">
+        <div id="userMode" class="hidden flex flex-col items-center pb-20 pt-23 ">
             <h2 class="pb-10 text-4xl">Pick a Mode ?</h2>
            <section class="flex flex-wrap justify-center text-center">
             <h2 class="border w-25 h-20 pt-1 mr-2">Business <i class="fa-solid fa-briefcase text-4xl"></i></h2>
@@ -20,7 +20,7 @@
         </div>
 
          <!-- BUINESS TRACLER CHOICES -->
-        <div id="BusinessTrackerChoices" class="flex flex-col justify-center border text-center ">
+        <div id="BusinessTrackerChoices" class="hidden flex flex-col justify-center  text-center ">
             <h2 class="font-bold text-2xl">Business Tacker</h2>
             <p>What are you tracking today ?!</p>
             <div class=" flex flex-wrap justify-center">
@@ -37,234 +37,498 @@
         </div>
 
         <!-- BUISNESS TRACKERS !!! -->
-    <div class="flex flex-col items-center sm:bg-red-500 md:bg-yellow-500 lg:bg-pink-500 xl:bg-blue-500 3xl:bg-cyan-700" id="Buisness-mode">
+    <div class="flex flex-col bg-green-200 items-center sm:bg-red-500 md:bg-yellow-500 lg:bg-pink-500 xl:bg-blue-500 3xl:bg-cyan-700" id="Buisness-mode">
         <!--  -->
         <!-- FINANCE TRACKER-->
-        <div id="financeTracker" class="border mt-10 rounded">
+        <div id="financeTracker" class="mt-10 rounded">
             <!-- Track business income, expenses, and financial performance -->
-            <h3 class="font-bold text-center text-2xl">Finance Tracker</h3>
-            <form class="pl-4 pr-4 pb-2 bg-red-200 text-center">
-                <label for="TransactionType" class="">Transaction Type</label> <br>
-                <!-- INCOME-->
-                <input type="radio" id="income" name="Income" value="Income">
-                <label for="income">Income</label> <br>
-                <!-- EXPENSE-->
-                <input type="radio" id="expense" name="Expense" value="expense">
-                <label for="expense">Expense</label>
+            <h3 class="font-bold text-center text-2xl">Finance Tracker <i class="fa-solid fa-message-exclamation"></i></h3>
+            <form id="financeForm" class="pl-4 pr-4 pt-2 pb-2 w-69 shadow-xl/60  rounded text-center">
+                <label for="TransactionType" class="underline">TRANSACTION TYPE</label><br>
+                <select id="typeFT" class="text-center bg-gray-400 rounded">
+                    <optgroup label="Type">
+                        <option value="income">Income</option>
+                        <option value="expense">Expense</option>
+                    </optgroup>
+                </select>
                 <br>
-                <label for="Amount">Amount</label><br>
-                <input type="number" class="bg-gray-400 rounded" placeholder="$" >
+                <label for="Amount" class="underline">AMOUNT</label><br>
+                <input type="number" id="amountFT" class="bg-gray-400 rounded text-center w-20" placeholder="$" >
                 <br>
-                <label for="">Date</label><br>
-                <input type="date" class="bg-gray-400 rounded">
+                <label for="" class="underline">DATE</label><br>
+                <input type="date" id="dateFT" class=" bg-gray-400 rounded">
                 <br>
-                <label for="">Category</label><br>
-               <select name="" id="" class="bg-gray-400 rounded">
+                <label for="" class="underline">CATEGORY</label><br>
+               <select name="" id="categoryTF" class="bg-gray-400 rounded">
                 <optgroup label="Income">
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
+                    <option value="productSale">Product Sale</option>
+                    <option value="serviceRevenue">Service Revenue</option>
+                    <option value="customerPayments">Customer Payments</option>
+                    <option value="onlineOrders">Online Orders</option>
+                    <option value="commission">Commission</option>
+                    <option value="tips">Tips</option>
+                    <option value="refund/returns">Refund/Returns</option>
+                    <option value="investmentIncome">Investment Income</option>
+                    <option value="loanRecieved">Loan Recieved</option>
                 </optgroup>
                 <optgroup label="Expense">
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
+                  <option value="rent">Rent / Lease</option>
+                  <option value="utilities">Utilities</option>
+                  <option value="software">Software Subscriptions</option>
+                  <option value="inventory">Inventory / Supplies</option>
+                  <option value="advertising">Advertising</option>
+                  <option value="salary">Salaries / Labor</option>
+                  <option value="fuel">Fuel / Transportation</option>
+                  <option value="insurance">Business Insurance</option>
+                  <option value="taxes">Taxes & Fees</option>
+                  <option value="misc">Miscellaneous</option>
+                  <option value="others">Others</option>
                 </optgroup>
                </select>
                 <br>
-                <label for="">Notes</label><br>
-                <textarea name="" id="" cols="26" class="text-center bg-gray-400 rounded">YERRRRRR</textarea>
+                <label for="" class="underline">NOTES</label><br>
+                <textarea name="" id="notesFT" cols="26" class="text-center bg-gray-400 rounded" placeholder="List of items"></textarea>
                 <br>
-                <label for="" class="">Upload Receipt</label><br>
+                <label for="" class="underline">Upload Receipt</label><br>
                 <input type="" class="text-center bg-gray-400 rounded">
+                <br>
+                <button type="submit" class="w-20 border rounded bg-yellow-300 mt-3">Submit</button>
             </form>
+            <div class="summary flex flex-col p-1 w-69 mt-2 rounded  shadow-xl/60  text-center">
+                <p class="text-green-500"> TOTAL INCOME: $<span id="totalIncome">0</span></p>
+                <p class="text-red-500 ">TOTAL EXPENSE: $<span id="totalExpense">0</span></p>
+                <p class="text-yellow-500">BALANCE: $<span id="balance">0</span></p>
+            </div>
+            <div class="p-1 shadow-xl/60 w-69 rounded text-center">
+                <table>
+                    <thead>
+                    <th class="p-1 underline text-center">Date</th>
+                    <th class="p-2 underline text-center">Description</th>
+                    <th class="p-2 underline text-center">Type</th>
+                    <th class="p-2 underline text-center">Amount</th>
+                    </thead>
+                    <tbody id="financeTableBody"></tbody>
+                </table>
+            </div>
         </div>
         <!--  -->
         <!-- PURCHASE TRACKER -->
-        <div id="purchaseTracker" class="border mt-10 rounded">
+        <div id="purchaseTracker" class="mt-10 rounded">
             <!-- Track business spending, what you bought, and from where -->
-            <h3 class="font-bold text-center text-2xl">Purchase Tracker</h3>
-            <form class="pl-4 pr-4 pb-2 bg-red-200 text-center">
-                <label for="">Vendor</label><br>
-                <input type="text" class="text-center bg-gray-400 rounded">
-                <br>
-                <label for="">Item Name</label><br>
-                <input type="text" class="text-center bg-gray-400 rounded">
-                <br>
-                <label for="">Quantity</label><br>
-                <input type="text" class="text-center bg-gray-400 rounded">
-                <br>
-                <label for="">Price</label><br>
-                <input type="text" class="text-center bg-gray-400 rounded">
-                <br>
-                <label for="">Date</label><br>
+            <h3 class="font-bold text-center text-2xl ml-3 mr-3">Purchase Tracker <i class="fa-solid fa-message-exclamation"></i></h3>
+            <form class="pl-4 pr-4 pt-2 pb-2 w-69 shadow-xl/60  rounded text-center">
+                <label for="" class="underline">DATE OF PURCHASE</label><br>
+                <!-- When it was bought -->
                 <input type="date" class="text-center bg-gray-400 rounded">
                 <br>
-                <label for="">Category</label><br>
-                 <select name="" id="" class="text-center bg-gray-400 rounded">
-                    <optgroup label="Cetegory">
-                        <option value="">Supplies</option>
+                <label for="" class="underline">VENDOR/STORE</label><br>
+                <!-- Where it was bought from -->
+                <input type="text" class="text-center bg-gray-400 rounded" placeholder="Vendor / Store Name">
+                <br>
+                <label for="" class="underline">ITEMS PURCHASED</label><br>
+                <!-- List of goods or a description -->
+                 <textarea name="" id="" cols="30" class="text-center bg-gray-400 rounded" placeholder="Example: Chicken Wings 40lb, Gloves 100ct"></textarea>
+                <br>
+                <label for="" class="underline">CATEGORY</label><br>
+                <!-- 	What type of purchase it was -->
+                 <select name="" id=""  class="text-center bg-gray-400 rounded">
+                    <optgroup label="Type of Purchase">
                         <option value="">Inventory</option>
-                        <option value="">Office Equipment</option>
-                        <option value="">Utilities</option>
-                        <option value="">Marketing</option>
-                        <option value="">Transportation</option>
-                        <option value="">Rent / Lease</option>
-                        <option value="">Software / SaaS</option>
-                        <option value="">Professional Services</option>
-                        <option value="">Maintenance / Repair</option>
-                        <option value="">Others</option>
+                        <option value="">Equipment</option>
+                        <option value="">Supplies</option>
+                        <option value="">Packaging</option>
+                    </optgroup>
+                 </select>
+                <br>
+                <label for="" class="underline">PAYMENT METHOD</label><br>
+                <!-- How it was paid -->
+                <select name="" id="" class="text-center bg-gray-400 rounded">
+                    <optgroup label="Payment Method">
+                        <option value="Cash">Cash</option>
+                        <option value="Debit">Debit</option>
+                        <option value="Credit">Credit</option>
+                        <option value="Zelle">Zelle</option>
+                        <option value="Checl">Check</option>
                     </optgroup>
                 </select>
                 <br>
-                <label for="">Receipt/File</label><br>
-                <input type="text" class="text-center bg-gray-400 rounded">
+                <label for="" class="underline">AMOUNT</label><br>
+                <!-- Total purchase cost -->
+                <input type="text" class="text-center w-20 bg-gray-400 rounded" placeholder="$">
+                <br>
+                <label for="" class="underline">BUSINESS PURPOSE</label><br> 
+                <!-- What it was for -->
+                 <select name="" id="" class="text-center bg-gray-400 rounded">
+                    <optgroup label="Iventory & Supplies">
+                        <option value="">Restock</option>
+                        <option value="">Resale</option>
+                        <option value="">Food Preparation</option>
+                        <option value="">Packaging</option>
+                        <option value="">Utensiles</option>
+                        <option value="">Cleaning Supplies</option>
+                        <option value="">General Supplies</option>
+                    </optgroup>
+                    <optgroup label="Equipment & Tools">
+                        <option value="">Kitchen Equipment</option>
+                        <option value="">Replacement Tools</option>
+                        <option value="">Appliance Upgrade</option>
+                        <option value="">Storage/Shelving</option>
+                    </optgroup>
+                    <optgroup label="Transportation & Delivery">
+                        <option value="">Fuel</option>
+                        <option value="">Delivery Service</option>
+                        <option value="">Delivery Supplies</option>
+                        <option value="">Transport Rental</option>
+                    </optgroup>
+                    <optgroup label="Technology & Software">
+                        <option value="">POS System</option>
+                        <option value="">Software Subscription</option>
+                        <option value="">Website Hosting</option>
+                        <option value="">Tech Accessories</option>
+                    </optgroup>
+                    <optgroup label="Marketing & Promotion">
+                        <option value="">Advertising</option>
+                        <option value="">Flyers / Buiness Cards</option>
+                        <option value="">Event Promotion</option>
+                        <option value="">Signage / Branding</option>
+                    </optgroup>
+                    <optgroup label="Maintenance & Utilities ">
+                        <option value="">Equipment Repair</option>
+                        <option value="">Utility Payments</option>
+                        <option value="">Pest Control</option>
+                        <option value="">Space CLeaning</option>
+                    </optgroup>
+                    <optgroup label="Others">
+                        <option value="">General Buiness Operations</option>
+                        <option value="">Emergency Purchase</option>
+                        <option value="">Miscellaneous</option>
+                    </optgroup>
+                </select>
+                <br>
+                <label for="" class="underline">RECEIPT/FILE</label><br>
+                <input type="file" class="text-center w-50 border bg-gray-400 rounded" accept="image/png, image/jpeg">
+                <button type="submit" class="w-20 border rounded bg-yellow-300 mt-3">Submit</button>
             </form>
         </div>
-        <div class="PaymentTracker border mt-10 rounded" id="PaymentTracker">
+        <div class="PaymentTracker mt-10 rounded" id="PaymentTracker">
             <!-- Log payments received or due, manage cash flow -->
-            <h3 class="font-bold text-center text-2xl">Payment Tracker</h3>
-            <form action="" class="pl-4 pr-4 pb-2 bg-red-200 text-center">
-                <label for="">Customer Nane</label><br>
-                <input type="text" class="text-center bg-gray-400 rounded">
+            <h3 class="font-bold text-center text-2xl">Payment Tracker <i class="fa-solid fa-message-exclamation"></i></h3>
+            <form action="" class="pl-4 pr-4 pt-2 pb-2 w-69 shadow-xl/60  rounded text-center">
+                <label for="" class="underline">DATE</label><br>
+                <!-- Payment date or due date -->
+                <input type="date" class="text-center bg-gray-400 rounded" placeholder="Date of payment">
                 <br>
-                <label for="">Invoice #</label><br>
-                <input type="text" class="text-center bg-gray-400 rounded">
+                <label for="" class="underline">PAYMENT TYPE</label><br>
+                <!-- 	Incoming or outgoing // Incoming (from customer) / Outgoing (to vendor) -->
+                 <select name="" id="" class="text-center w-50 border bg-gray-400 rounded">
+                    <optgroup label="Payment Type" >
+                        <option value="">Income "From Customer"</option>
+                        <option value="">Outgoing "To Vendor"</option>
+                    </optgroup>
+                 </select>
                 <br>
-                <label for="">Amount</label><br>
-                <input type="text" class="text-center bg-gray-400 rounded">
+                <label for="" class="underline">VENDOR / CLIENT</label><br>
+                <!-- Who you're paying or getting paid from -->
+                <input type="text" class="text-center bg-gray-400 rounded" placeholder="Jetro Foods or John Smith">
                 <br>
-                <label for="">Paid/Unpaid</label><br>
+                <label for="" class="underline">ITEMS/SERVICE</label><br>
+                <!-- 	What it’s for -->
+                <input type="text" class="text-center bg-gray-400 rounded" placeholder="200 Tortilla Packs">
+                <br>
+                <label for="" class="underline">AMOUNT</label><br>
+                <!-- 	Total payment amount -->
+                <input type="number" class="text-center w-20 bg-gray-400 rounded" placeholder="$325.00">
+                <br>
+                <label for="" class="underline">PAYMENT METHOD</label><br>
+                <!-- How it was paid -->
                 <select name="" id="" class="text-center bg-gray-400 rounded">
                     <optgroup >
-                        <option value="" class="text-center">Paid</option>
-                        <option value="">Unpaid</option>
+                        <option value="">Cash</option>
+                        <option value="">Card</option>
+                        <option value="">Zelle</option>
+                        <option value="">Check</option>
+                        <option value="">Bank Transfer</option>
+                    </optgroup>
+                </select>                <br>
+                <label for="" class="underline">STATUS</label><br>
+                <!-- Paid / Pending / Overdue -->
+                <select name="" id="" class="text-center bg-gray-400 rounded">
+                    <optgroup label="Status">
+                        <option value="">Paid</option>
+                        <option value="">Pending</option>
+                        <option value="">Overdue</option>
+                    </optgroup>
+                </select>       
+                <br>
+                <label for="" class="underline">RECEIPT/FILE</label><br>
+                <input type="file" class="text-center w-50 border bg-gray-400 rounded" accept="image/png, image/jpeg"><br>
+                <label for="">Notes</label>
+                <textarea name="" id="" cols="30" placeholder="Example: Paid half upfront" class="text-center w-50 border bg-gray-400 rounded"></textarea>
+                <button type="submit" class="w-20 border rounded bg-yellow-300 mt-3">Submit</button>
+            </form>
+        </div>
+        <div class="InventoryTracker mt-10 rounded" id="InventoryTracker">
+            <!-- Keep track of stock levels, what’s running low, and reorder needs -->
+            <h3 class="font-bold text-center text-2xl">Inventory Tracker <i class="fa-solid fa-message-exclamation"></i></h3>
+            <form action="" class="pl-4 pr-4 pt-2 pb-2 w-69 shadow-xl/60  rounded text-center">
+                <label for="" class="underline">ITEMS NAME</label><br>
+                <input type="text" class="text-center bg-gray-400 rounded" placeholder="Tortilla Packs">
+                <br>
+                <label for="" class="underline">CETERGORY</label><br>
+                   <select class="text-center bg-gray-400">
+                    <optgroup label="" >
+                        <option value="">Food</option>
+                        <option value="">Tools</option>
+                        <option value="">Packaging</option>
                     </optgroup>
                 </select>
                 <br>
-                <label for="">Due Date</label><br>
-                <input type="date" class="text-center bg-gray-400 rounded">
+                <label for="" class="underline">QUANTITY IN STOCK</label><br>
+                <input type="text" class="text-center bg-gray-400 rounded"  placeholder="120 units">
                 <br>
-                <label for="">Payment</label><br>
-                <input type="number" placeholder="$" class="text-center bg-gray-400 rounded">
+                <label for="" class="underline">UNIT</label><br>
+                <!-- Measurement unit	 -->
+                <input type="text" class="text-center bg-gray-400 rounded" placeholder="packs, lbs, gallons">
                 <br>
-            </form>
-        </div>
-        <div class="InventoryTracker border mt-10 rounded" id="InventoryTracker">
-            <!-- Keep track of stock levels, what’s running low, and reorder needs -->
-            <h3 class="font-bold text-center text-2xl">Inventory Tracker</h3>
-            <form action="" class="pl-4 pr-4 pb-2 bg-red-200 text-center">
-                <label for="">Product Name</label><br>
-                <input type="text" class="text-center bg-gray-400 rounded">
+                <label for="" class="underline">PURCHASE COST PER UNIT</label><br>
+                <!-- What you paid	 -->
+                <input type="text" class="text-center bg-gray-400 rounded" placeholder="$5.00">
                 <br>
-                <label for="">SKU/ID</label><br>
-                <input type="text" class="text-center bg-gray-400 rounded">
+                <label for="" class="underline">SUPPLIER/VENDOR</label>
+                <!-- Where it was bought -->
+                <input type="text" name="" id="" class="text-center bg-gray-400 rounded"  placeholder="Jetro, Bronx">
                 <br>
-                <label for="">Quantity In/Out</label><br>
-                <input type="text" class="text-center bg-gray-400 rounded">
+                <label for="" class="underline">PURCHASE DATE</label><br>
+                <!-- When it was added -->
+                <input type="date" name="" id="" class="text-center bg-gray-400 rounded"  placeholder="Jetro, Bronx">
                 <br>
-                <label for="">Supplier</label><br>
-                <input type="text" class="text-center bg-gray-400 rounded">
+                <label for="" class="underline">RESTOCK LEVEL</label>
+                <!-- Alert when below this qty -->
+                <input type="number" class="text-center bg-gray-400 rounded"  name="" id="" placeholder="20">
                 <br>
-                <label for="">Restock Threshold</label><br>
-                <input type="text" class="text-center bg-gray-400 rounded">
+                <label for="" class="underline">LAST UPDATED</label><br>
+                <!-- Alert when below this qty -->
+                <input type="date" name="" class="text-center bg-gray-400 rounded"  id="">
                 <br>
-                <label for="">Notes</label><br>
+                <label for="" class="underline">NOTES</label><br>
                 <textarea name="" id="" cols="30" class="text-center bg-gray-400 rounded">YERRRRRR</textarea>
+                <button type="submit" class="w-20 border rounded bg-yellow-300 mt-3">Submit</button>
             </form>
         </div>
-        <div class="SalesTracker border mt-10 rounded" id="SalesTracker">
+        <div class="SalesTracker mt-10 rounded" id="SalesTracker">
             <!-- Track how much you're selling and to whom -->
             <h3 class="font-bold text-center text-2xl">Sales Tracker</h3>
-            <form action="" class="pl-4 pr-4 pb-2 bg-red-200 text-center">
-                <label for="">Product/Service</label><br>
-                <input type="text" class="text-center bg-gray-400 rounded">
+            <form action="" class="pl-4 pr-4 pt-2 pb-2 w-69 shadow-xl/60  rounded text-center">
+                <label for="" class="underline">DATE</label><br>
+                <input type="date" class="text-center bg-gray-400 rounded">
                 <br>
-                <label for="">Quantity</label><br>
-                <input type="text" class="text-center bg-gray-400 rounded">
+                <label for="" class="underline">ITEMS SOLD</label><br>
+                <!-- Product or service name	 -->
+                <input type="text" class="text-center bg-gray-400 rounded" placeholder="Beef Tacos (20ct)">
                 <br>
-                <label for="">Date Sold</label><br>
-                <input type="text" class="text-center bg-gray-400 rounded">
+                <label for="" class="underline">QUANTITY SOLD</label><br>
+                <!-- Number of units -->
+                <input type="number" class="text-center bg-gray-400 rounded" min="1" placeholder="1">
                 <br>
-                <label for="">Sale Price</label><br>
-                <input type="text" class="text-center bg-gray-400 rounded">
+                <label for="" class="underline">PRICE PER UNIT</label><br>
+                <input type="text" class="text-center bg-gray-400 rounded" placeholder="$25.00">
                 <br>
-                <label for="">Client/Customer</label><br>
-                <input type="text" class="text-center bg-gray-400 rounded">
+                <label for="" class="underline">TOTAL SALES</label><br>
+                <!-- Auto-calculated	 -->
+                <input type="text" class="text-center bg-gray-400 rounded" placeholder="$75.00">
                 <br>
-                <label for="">Invoice #</label><br>
-                <input type="text" class="text-center bg-gray-400 rounded">
+                <label for="" class="underline">CUSTOMER NAME</label><br>
+                <input type="text" class="text-center bg-gray-400 rounded" placeholder="Maria Gonzalez">
                 <br>
+                <label for="" class="underline">PAYMENT METHOD</label><br>
+                <select name="" id="" class="text-center bg-gray-400 rounded">
+                    <optgroup >
+                        <option value="">Cash</option>
+                        <option value="">Card</option>
+                        <option value="">Zelle</option>
+                    </optgroup>
+                </select>        
+                <br>
+                <label for="" class="underline">RECEIPT ISSUED</label><br>
+                <select name="" id="" class="text-center bg-gray-400 rounded">
+                    <optgroup label="Receipt Issued">
+                        <option value="">No</option>
+                        <option value="">Yes</option>
+                    </optgroup>
+                </select>    
+                <br>
+                <label for="" class="underline">NOTES</label><br>
+                <textarea name="" id="" cols="30" class="text-center bg-gray-400 rounded">YERRRRRR</textarea>
+                <button type="submit" class="w-20 border rounded bg-yellow-300 mt-3">Submit</button>                
             </form>
         </div>
-        <div id="To-Do_TaskManager" class="border mt-10 rounded">
+        <div id="To-Do_TaskManager" class="mt-10 rounded">
             <!-- Stay organized with daily business tasks and deadlines -->
             <h3 class="font-bold text-center text-2xl">To-Do / Task Manager</h3>
-            <form action="" class="pl-4 pr-4 pb-2 bg-red-200 text-center">
-                <label for="">Task</label><br>
-                <input type="text" class="text-center bg-gray-400 rounded">
+            <form action="" class="pl-4 pr-4 pt-2 pb-2 w-69 shadow-xl/60  rounded text-center">
+                <label for="" class="underline">TASK NAME</label><br>
+                <!-- What needs to be done	 -->
+                <input type="text" class="text-center bg-gray-400 rounded" placeholder="Buy produce from Jetro">
                 <br>
-                <label for="">Priority</label><br>
-                <input type="text" class="text-center bg-gray-400 rounded">
-                <br>
-                <label for="">Deadline</label><br>
+                <label for="" class="underline">CATEGORY/TYPE</label><br>
+                <!-- What needs to be done	 -->
+                <select name="" id="" class="text-center bg-gray-400 rounded">
+                    <optgroup label="Category or Type">
+                        <option value="">Business</option>
+                        <option value="">Personal</option>
+                        <option value="">School</option>
+                        <option value="">Custome</option>
+                    </optgroup>
+                </select>    
+                <br> 
+                <label for="" class="underline">DUE DATE</label><br>
+                <!-- When it should be completed	 -->
                 <input type="date" class="text-center w-25 bg-gray-400 rounded border">
                 <input type="time" class="text-center w-20 bg-gray-400 rounded border">
                 <br>
-                <label for="">Assigned To</label><br>
-                <input type="text" class="text-center bg-gray-400 rounded">
+                <label for="" class="underline">PRIOTITY</label><br>
+                <!-- Low, Medium, High -->
+                <select name="" id="" class="text-center bg-gray-400 rounded">
+                    <optgroup label="Priority">
+                        <option value="">Low</option>
+                        <option value="">Medium</option>
+                        <option value="">High</option>
+                    </optgroup>
+                </select>                    
                 <br>
-                <label for="">Status</label><br>
-                <input type="text" class="text-center bg-gray-400 rounded">
+                <label for="" class="underline">STATUS</label><br>
+                <!-- Pending / In Progress / Completed	 -->
+                <select name="" id="" class="text-center bg-gray-400 rounded">
+                    <optgroup label="Status">
+                        <option value="">Pending</option>
+                        <option value="">In-Progress</option>
+                        <option value="">Completed</option>
+                    </optgroup>
+                </select>                    
                 <br>
+                <label for="" class="underline">COMPLETION DATE</label>
+                <!-- When it was marked done -->
+                <input type="date" class="text-center bg-gray-400 rounded">
+                <br>
+                <label for="" class="underline">NOTES</label><br>
+                <textarea name="" id="" cols="30" class="text-center bg-gray-400 rounded" placeholder="Don't forget Roma tomatoes"></textarea>
+                <button type="submit" class="w-20 border rounded bg-yellow-300 mt-3">Submit</button>    
             </form>
         </div>
-        <div id="ClientVendorLog" class="border mt-10 rounded">
+        <div id="ClientVendorLog" class="mt-10 rounded">
             <!-- Keep track of your business relationships -->
             <h3 class="font-bold text-center text-2xl">Client / Vendor Log</h3>
-            <form action="" class="pl-4 pr-4 pb-2 bg-red-200 text-center">
-                <label for="">Name</label><br>
-                <input type="text" class="text-center bg-gray-400 rounded">
+            <form action="" class="pl-4 pr-4 pt-2 pb-2 w-69 shadow-xl/60  rounded text-center">
+                <label for="" class="underline">NAME</label><br>
+                <!-- Client or vendor name	 -->
+                <input type="text" class="text-center bg-gray-400 rounded" placeholder="Maria’s Tacos">
                 <br>
-                <label for="">Contact Info</label><br>
-                <input type="text" class="text-center bg-gray-400 rounded">
+                <label for="" class="underline">TYPE</label><br>
+                <!-- Client or Vendor	 -->
+                <select name="" id="" class="text-center bg-gray-400 rounded">
+                    <optgroup label="Type">
+                        <option value="">Client</option>
+                        <option value="">Vendor</option>
+                    </optgroup>
+                </select>                    
                 <br>
-                <label for="">Notes</label><br>
-                <textarea name="" id="" cols="30" class="text-center bg-gray-400 rounded">YERRRRRR</textarea>
+                <label for="" class="underline">BUSINESS NAME</label><br>
+                <!-- Optional company name	 -->
+                <input type="date" class="text-center bg-gray-400 rounded" placeholder="Optional company name">
                 <br>
-                <label for="">Last Interaction</label><br>
-                <input type="date" class="text-center bg-gray-400 rounded">
+                <label for="" class="underline">PHONE</label><br>
+                <!-- Contact number	 -->
+                <input type="tel" class="text-center bg-gray-400 rounded" placeholder="Contact number">
                 <br>
+                <label for="" class="underline">EMAIL</label><br>
+                <!-- Contact email	 -->
+                <input type="email" class="text-center bg-gray-400 rounded" placeholder="maria@example.com">
+                <br>
+                <label for="" class="underline">ADDRESS</label><br>
+                <!-- Business or delivery address	 -->
+                <input type="text" class="text-center bg-gray-400 rounded" placeholder="Bronx, NY - Business or Delivert Addy">
+                <br>
+                <label for="" class="underline">PAYMENT TERMS</label><br>
+                <!-- Custom rules (e.g., 50% upfront)	 -->
+                <input type="text" class="text-center bg-gray-400 rounded" placeholder="Optional: $340">
+                <br>
+                <label for="" class="underline">CATEGORY/TAGS</label><br>
+                <!-- Food, Event, Bulk Buyer, etc.	 -->
+                <input type="text" class="text-center bg-gray-400 rounded" placeholder="Repeat Client, Food, Event, Bulk Buyer, etc">
+                <br>
+                <label for="" class="underline">TRANSACTION NOTE</label><br>
+                <!-- Relationship or purchase/sales history	 -->
+                <textarea name="" id="" cols="30" class="text-center bg-gray-400 rounded" placeholder="Orders birria kits monthly"></textarea>
+                <br>
+                <label for="" class="underline">LAST CONTACTED</label><br>
+                <input type="date" class="text-center bg-gray-400 rounded"><br>
+                <button type="submit" class="w-20 border rounded bg-yellow-300 mt-3">Submit</button>
             </form>
         </div>
-        <div id="ServiceLog" class="border mt-10 rounded">
+        <div id="ServiceLog" class="mt-10 rounded">
             <!-- Track what jobs/services were completed and billed -->
             <h3 class="font-bold text-center text-2xl">Service Log</h3>
-            <form action="" class="pl-4 pr-4 pb-2 bg-red-200 text-center">
-                <label for="">Job/Service Perfomed</label><br>
-                <input type="text" class="text-center bg-gray-400 rounded">
-                <br>
-                <label for="">Date</label><br>
+            <!-- To track when and for whom a service was provided, the cost, outcome, 
+                and any related tasks or follow-ups.-->
+            <form action="" class="pl-4 pr-4 pt-2 pb-2 w-69 shadow-xl/60  rounded text-center">
+                <label for="" class="underline">SERVICE DATE</label><br>
+                <!-- When the service was performed	 -->
                 <input type="date" class="text-center bg-gray-400 rounded">
                 <br>
-                <label for="">Cost to Client</label><br>
-                <input type="number" class="text-center bg-gray-400 rounded">
+                <label for="" class="underline">CLIENT NAME</label><br>
+                <!-- Who the service was for -->
+                <input type="text" class="text-center bg-gray-400 rounded" placeholder="Who the service was for">
                 <br>
-                <label for="">Materials Used</label><br>
-                <input type="date" class="text-center bg-gray-400 rounded">
+                <label for="" class="underline">SERVICE TYPE</label><br>
+                <!-- Catering, Repair, Delivery, Setup	 -->
+                <select name="" id="" class="text-center bg-gray-400 rounded">
+                    <optgroup label="Service Type">
+                        <option value="">Catering</option>
+                        <option value="">Repair</option>
+                        <option value="">Delivery</option>
+                        <option value="">Setup</option>
+                    </optgroup>
+                </select>                     
                 <br>
-                <label for="">Notes</label><br>
-                <textarea name="" id="" cols="30" class="text-center bg-gray-400 rounded">YERRRRRR</textarea>
+                <label for="" class="underline">DESCRIPTION</label><br>
+                <!-- What was done / delivered	 -->
+                <input type="text" class="text-center bg-gray-400 rounded" placeholder="What was done/delivered">
                 <br>
+                <label for="" class="underline">COST/FEE</label><br>
+                <!--How much was charged or spent-->
+                <input type="text" class="text-center bg-gray-400 rounded" placeholder="$600">
+                <br>
+                <label for="" class="underline">PAYMENT STATUS</label><br>
+                <!-- Paid / Unpaid / Partial -->
+                <select name="" id="" class="text-center bg-gray-400 rounded">
+                    <optgroup label="Payment Status">
+                        <option value="">Paid</option>
+                        <option value="">Unpaid</option>
+                        <option value="">Parital</option>
+                    </optgroup>
+                </select>  
+                <br>
+                <label for="" class="underline">MATERIALS USED</label><br>
+                <!-- Inventory used (optional link)	 -->
+                <textarea name="" id="" cols="30" class="text-center bg-gray-400 rounded" placeholder="30lb chicken, 60 tortillas"></textarea>
+                <br>
+                <label for="" class="underline">ASSIGNED STAFF</label><br>
+                <!-- Who handled it	-->
+                <input type="text" class="text-center bg-gray-400 rounded" placeholder="Who handled it">
+                <br>
+                <label for="" class="underline">SERVICE OUTCOME</label><br>
+                <!-- Result or feedback	 -->
+                <input type="text" class="text-center bg-gray-400 rounded" placeholder="Result or feedback">
+                <br>
+                <label for="" class="underline">RECEIPT / FILE UPLOAD</label>
+                <!-- Invoice or photos -->
+                <input type="file" class="text-center w-50 border bg-gray-400 rounded" accept="image/png, image/jpeg">
+                <br>
+                <label for="" class="underline">NOTES</label><br>
+                <!-- Any extra comments	 -->
+                <textarea name="" id="" cols="30" class="text-center bg-gray-400 rounded" placeholder="Client requested future order in August"></textarea>
+                <br>
+                <button type="submit" class="w-20 border rounded bg-yellow-300 mt-3">Submit</button>
             </form>
         </div>
     </div>
@@ -288,5 +552,7 @@
     <div class="" id="Student-mode"></div>
     
      -->
+
+     <script src="/App.js"></script>
 </body>
 </html>
