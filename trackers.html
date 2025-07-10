@@ -32,15 +32,15 @@
             <h2 class="font-bold text-2xl text-white underline">Business Tacker</h2>
             <p class="text-white italic ">What are you tracking today ?!</p>
             <div id="options" class=" flex flex-wrap justify-center">
-                <div id="finance" class=" border w-25 pt-5 h-20 mr-3 mb-1 bg-gray-200 hover:bg-green-200">Finance</div>
-                <div id="purchase" class=" border w-25 h-20 pt-5 mr-3 bg-gray-200 hover:bg-green-200">Purchase</div>
-                <div id="payments" class=" border w-25 h-20 pt-5 mr-3 bg-gray-200 hover:bg-green-200">Payments</div>
-                <div id="inventory" class=" border w-25 h-20 pt-5 mr-3 mb-1 bg-gray-200 hover:bg-green-200">Inventory</div>
-                <div id="sales" class=" border w-25 h-20 pt-5 mr-3 bg-gray-200 hover:bg-green-200">Sales</div>
-                <div id="taskManager" class=" border w-25 h-20 pt-5 mr-3 bg-gray-200 hover:bg-green-200">Task Manager</div>
-                <div id="clientVendorLog" class=" border w-25 h-20 pt-5 mr-3 mb-1 bg-gray-200 hover:bg-green-200">Client/Vendor Log</div>
-                <div id="serviceLog" class=" border w-25 h-20 pt-5 mr-3 bg-gray-200 hover:bg-green-200">Service Log</div>
-                <div  class=" border w-25 h-20 pt-5 mr-3  hover:bg-red-400"><a href="index.html"><i class="text-white shadow-lg fa-solid fa-user-tie text-4xl"></i></a></div>
+                <div id="finance" class=" border rounded w-25 pt-5 h-20 mr-3 mb-1 bg-gray-200 hover:bg-green-200">Finance</div>
+                <div id="purchase" class=" border rounded w-25 h-20 pt-5 mr-3 bg-gray-200 hover:bg-green-200">Purchase</div>
+                <div id="payments" class=" border rounded w-25 h-20 pt-5 mr-3 bg-gray-200 hover:bg-green-200">Payments</div>
+                <div id="inventory" class=" border rounded w-25 h-20 pt-5 mr-3 mb-1 bg-gray-200 hover:bg-green-200">Inventory</div>
+                <div id="sales" class=" border rounded w-25 h-20 pt-5 mr-3 bg-gray-200 hover:bg-green-200">Sales</div>
+                <div id="taskManager" class=" border rounded w-25 h-20 pt-5 mr-3 bg-gray-200 hover:bg-green-200">Task Manager</div>
+                <div id="clientVendorLog" class=" border rounded w-25 h-20 pt-5 mr-3 mb-1 bg-gray-200 hover:bg-green-200">Client/Vendor Log</div>
+                <div id="serviceLog" class=" border rounded w-25 h-20 pt-5 mr-3 bg-gray-200 hover:bg-green-200">Service Log</div>
+                <div  class=" border w-25 h-20 pt-5 mr-3 rounded hover:bg-blue-400"><a href="index.html"><i class="text-white shadow-lg fa-solid fa-user-tie text-4xl"></i></a></div>
             </div>
         </div>
 
@@ -100,19 +100,19 @@
                 <button type="submit" class="w-20 border rounded bg-yellow-300 mt-2 mb-2">Submit</button>
             </form>
             <div class=" flex flex-col  w-80 mt-5 rounded  shadow-xl/60  text-center">
-                <p class="text-green-500 font-bold underline "> TOTAL INCOME: $<span id="totalIncome">0</span></p>
-                <p class="text-red-500 font-bold underline ">TOTAL EXPENSE: $<span id="totalExpense">0</span></p>
-                <p class="text-yellow-500 font-bold underline ">BALANCE: $<span id="balance">0</span></p>
+                <p class="text-green-500  underline "> TOTAL INCOME: $<span id="totalIncome">0</span></p>
+                <p class="text-red-500 underline ">TOTAL EXPENSE: $<span id="totalExpense">0</span></p>
+                <p class="text-yellow-500 bold underline ">BALANCE: $<span id="balance">0</span></p>
             </div>
             <div class=" mt-5 shadow-xl/60 w-80 rounded text-center">
                 <table class="">
-                    <thead>
+                    <thead class="text-white">
                     <th class="underline">Date</th>
                     <th class="underline pl-2">Description</th>
                     <th class="underline pl-2">Type</th>
                     <th class="underline pl-2">Amount</th>
                     </thead>
-                    <tbody id="financeTableBody"></tbody>
+                    <tbody id="financeTableBody" class="text-white"></tbody>
                 </table>
             </div>
         </div>
@@ -214,7 +214,7 @@
                 <input type="file" id="reciptPT" class="text-center w-50 border bg-gray-400 rounded" accept="image/png, image/jpeg">
                 <button type="submit" id="btnPT" class="w-20 border rounded bg-yellow-300 mt-3">Submit</button>
             </form>
-            <div >
+            <!-- <div >
                 <table class="flex flex-col items-center">
                     <thead>
                     <th class="underline">Date</th>
@@ -226,7 +226,7 @@
                     </thead>
                     <tbody id="PTTableBody"></tbody>
                 </table>
-            </div>
+            </div> -->
         </div>
         <!--  -->
         <div class="hidden mb-10 mt-2 rounded" id="PaymentTracker">
