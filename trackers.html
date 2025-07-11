@@ -20,22 +20,59 @@
             <li class="bg-blue-600 text-white font-bold py-3 px-6 rounded hover:bg-blue-700 transition"><a href="aboutUs.html">About Us</a></li>
         </ol>
     </nav>
-         <!-- BUINESS TRACLER CHOICES -->
-        <div id="BusinessTrackerChoices" class=" flex flex-col justify-center  text-center my-5">
-            <h2 class="font-bold text-2xl text-white underline">Business Tacker</h2>
-            <p class="text-white italic ">What are you tracking today ?!</p>
-            <div id="options" class=" flex flex-wrap justify-center">
-                <div id="finance" class=" border rounded w-25 pt-5 h-20 mr-3 mb-1 bg-gray-200 hover:bg-green-200">Finance</div>
-                <div id="purchase" class=" border rounded w-25 h-20 pt-5 mr-3 bg-gray-200 hover:bg-green-200">Purchase</div>
-                <div id="payments" class=" border rounded w-25 h-20 pt-5 mr-3 bg-gray-200 hover:bg-green-200">Payments</div>
-                <div id="inventory" class=" border rounded w-25 h-20 pt-5 mr-3 mb-1 bg-gray-200 hover:bg-green-200">Inventory</div>
-                <div id="sales" class=" border rounded w-25 h-20 pt-5 mr-3 bg-gray-200 hover:bg-green-200">Sales</div>
-                <div id="taskManager" class=" border rounded w-25 h-20 pt-5 mr-3 bg-gray-200 hover:bg-green-200">Task Manager</div>
-                <div id="clientVendorLog" class=" border rounded w-25 h-20 pt-5 mr-3 mb-1 bg-gray-200 hover:bg-green-200">Client/Vendor Log</div>
-                <div id="serviceLog" class=" border rounded w-25 h-20 pt-5 mr-3 bg-gray-200 hover:bg-green-200">Service Log</div>
-                <div  class=" border w-25 h-20 pt-5 mr-3 rounded hover:bg-blue-400"><a href="index.html"><i class="text-white shadow-lg fa-solid fa-user-tie text-4xl"></i></a></div>
-            </div>
+  <!-- BUSINESS TRACKER CHOICES -->
+<div id="BusinessTrackerChoices" class="flex flex-col justify-center text-center my-5">
+    <h2 class="font-bold text-2xl text-white underline">Business Tracker</h2>
+    <p class="text-white italic">What are you tracking today ?!</p>
+    
+    <div id="options" class="flex flex-wrap justify-center">
+
+        <div id="finance" class="border rounded w-25 pt-5 h-20 mr-3 mb-1 bg-gray-200 hover:bg-green-200 cursor-pointer">
+            Finance *
         </div>
+
+        <!-- Coming Soon -->
+        <div class="relative border rounded w-25 h-20 pt-5 mr-3 mb-1 bg-gray-300 text-gray-500 cursor-not-allowed opacity-70">
+            Purchase
+            <span class="absolute top-1 right-1 text-xs bg-yellow-400 text-black px-1 rounded">Coming Soon</span>
+        </div>
+
+        <div id="payments" class="border rounded w-25 h-20 pt-5 mr-3 bg-gray-200 hover:bg-green-200 cursor-pointer">
+            Payments *
+        </div>
+
+        <div id="inventory" class="border rounded w-25 h-20 pt-5 mr-3 mb-1 bg-gray-200 hover:bg-green-200 cursor-pointer">
+            Inventory *
+        </div>
+
+        <div id="sales" class="border rounded w-25 h-20 pt-5 mr-3 bg-gray-200 hover:bg-green-200 cursor-pointer">
+            Sales *
+        </div>
+
+        <div id="taskManager" class="border rounded w-25 h-20 pt-5 mr-3 bg-gray-200 hover:bg-green-200 cursor-pointer">
+            Task Manager *
+        </div>
+
+        <!-- Coming Soon -->
+        <div class="relative border rounded w-25 h-20 pt-5 mr-3 mb-1 bg-gray-300 text-gray-500 cursor-not-allowed opacity-70">
+            Client/Vendor Log
+            <span class="absolute top-1 right-1 text-xs bg-yellow-400 text-black px-1 rounded">Coming Soon</span>
+        </div>
+
+        <!-- Coming Soon -->
+        <div class="relative border rounded w-25 h-20 pt-5 mr-3 bg-gray-300 text-gray-500 cursor-not-allowed opacity-70">
+            Service Log
+            <span class="absolute top-1 right-1 text-xs bg-yellow-400 text-black px-1 rounded">Coming Soon</span>
+        </div>
+
+        <div class="border w-25 h-20 pt-5 mr-3 rounded hover:bg-blue-400">
+            <a href="index.html">
+                <i class="text-white shadow-lg fa-solid fa-user-tie text-4xl"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
 
         <!-- BUISNESS TRACKERS !!! -->
     <div class="flex flex-col bg-blue-500 items-center sm:bg-red-500 md:bg-yellow-500 lg:bg-pink-500 xl:bg-blue-500 3xl:bg-cyan-700" id="Buisness-mode">
@@ -117,19 +154,19 @@
             <form class="pl-4 pr-4 pt-2 pb-2 w-69 shadow-xl/60  rounded text-center">
                 <label for="" class="underline">DATE OF PURCHASE</label><br>
                 <!-- When it was bought -->
-                <input type="date" id="DatePT" class="text-center bg-gray-400 rounded">
+                <input type="date" id="DatePT" class="text-center bg-gray-400 rounded" disabled>
                 <br>
                 <label for="" class="underline">VENDOR/STORE</label><br>
                 <!-- Where it was bought from -->
-                <input type="text" id="vendorPT" class="text-center bg-gray-400 rounded" placeholder="Vendor / Store Name">
+                <input type="text" id="vendorPT" class="text-center bg-gray-400 rounded" placeholder="Vendor / Store Name" disabled>
                 <br>
                 <label for="" class="underline">ITEMS PURCHASED</label><br>
                 <!-- List of goods or a description -->
-                 <textarea name="" id="ItemsPT" cols="30" class="text-center bg-gray-400 rounded" placeholder="Example: Chicken Wings 40lb, Gloves 100ct"></textarea>
+                 <textarea name="" id="ItemsPT" cols="30" class="text-center bg-gray-400 rounded" placeholder="Example: Chicken Wings 40lb, Gloves 100ct" disabled></textarea>
                 <br>
                 <label for="" class="underline">CATEGORY</label><br>
                 <!-- 	What type of purchase it was -->
-                 <select name="" id="CategoryPT"  class="text-center bg-gray-400 rounded">
+                 <select name="" id="CategoryPT"  class="text-center bg-gray-400 rounded" disabled>
                     <optgroup label="Type of Purchase">
                         <option value="Inventory">Inventory</option>
                         <option value="Equipment">Equipment</option>
@@ -140,7 +177,7 @@
                 <br>
                 <label for="" class="underline">PAYMENT METHOD</label><br>
                 <!-- How it was paid -->
-                <select name="" id="PayMethodPT" class="text-center bg-gray-400 rounded">
+                <select name="" id="PayMethodPT" class="text-center bg-gray-400 rounded" disabled>
                     <optgroup label="Payment Method">
                         <option value="Cash">Cash</option>
                         <option value="Debit">Debit</option>
@@ -152,11 +189,11 @@
                 <br>
                 <label for="" class="underline">AMOUNT</label><br>
                 <!-- Total purchase cost -->
-                <input type="text" id="amountPT" class="text-center w-20 bg-gray-400 rounded" placeholder="$">
+                <input type="text" id="amountPT" class="text-center w-20 bg-gray-400 rounded" placeholder="$" disabled>
                 <br>
                 <label for="" class="underline">BUSINESS PURPOSE</label><br> 
                 <!-- What it was for -->
-                 <select name="" id="BusPurposePT" class="text-center bg-gray-400 rounded">
+                 <select name="" id="BusPurposePT" class="text-center bg-gray-400 rounded" disabled>
                     <optgroup label="Iventory & Supplies">
                         <option value="Restock">Restock</option>
                         <option value="Resale">Resale</option>
@@ -204,7 +241,7 @@
                 </select>
                 <br>
                 <label for="" class="underline">RECEIPT/FILE</label><br>
-                <input type="file" id="reciptPT" class="text-center w-50 border bg-gray-400 rounded" accept="image/png, image/jpeg">
+                <input type="file" id="reciptPT" class="text-center w-50 border bg-gray-400 rounded" accept="image/png, image/jpeg" disabled>
                 <button type="submit" id="btnPT" class="w-20 border rounded bg-yellow-300 mt-3">Submit</button>
             </form>
             <!-- <div >
@@ -276,159 +313,162 @@
 </div>
 
         <!--  -->
-        <!-- Inevntory Tracker -->
-        <div class="hidden mb-10 mt-2 rounded" id="InventoryTracker">
-            <!-- Keep track of stock levels, what’s running low, and reorder needs -->
-            <h3 class="font-bold text-center text-2xl">Inventory Tracker <i class="fa-solid fa-message-exclamation"></i></h3>
-            <form action="" class="pl-4 pr-4 pt-2 pb-2 w-69 shadow-xl/60  rounded text-center">
-                <label for="" class="underline">ITEMS NAME</label><br>
-                <input type="text" class="text-center bg-gray-400 rounded" placeholder="Tortilla Packs">
-                <br>
-                <label for="" class="underline">CETERGORY</label><br>
-                   <select class="text-center bg-gray-400">
-                    <optgroup label="" >
-                        <option value="">Food</option>
-                        <option value="">Tools</option>
-                        <option value="">Packaging</option>
-                    </optgroup>
-                </select>
-                <br>
-                <label for="" class="underline">QUANTITY IN STOCK</label><br>
-                <input type="text" class="text-center bg-gray-400 rounded"  placeholder="120 units">
-                <br>
-                <label for="" class="underline">UNIT</label><br>
-                <!-- Measurement unit	 -->
-                <input type="text" class="text-center bg-gray-400 rounded" placeholder="packs, lbs, gallons">
-                <br>
-                <label for="" class="underline">PURCHASE COST PER UNIT</label><br>
-                <!-- What you paid	 -->
-                <input type="text" class="text-center bg-gray-400 rounded" placeholder="$5.00">
-                <br>
-                <label for="" class="underline">SUPPLIER/VENDOR</label>
-                <!-- Where it was bought -->
-                <input type="text" name="" id="" class="text-center bg-gray-400 rounded"  placeholder="Jetro, Bronx">
-                <br>
-                <label for="" class="underline">PURCHASE DATE</label><br>
-                <!-- When it was added -->
-                <input type="date" name="" id="" class="text-center bg-gray-400 rounded"  placeholder="Jetro, Bronx">
-                <br>
-                <label for="" class="underline">RESTOCK LEVEL</label>
-                <!-- Alert when below this qty -->
-                <input type="number" class="text-center bg-gray-400 rounded"  name="" id="" placeholder="20">
-                <br>
-                <label for="" class="underline">LAST UPDATED</label><br>
-                <!-- Alert when below this qty -->
-                <input type="date" name="" class="text-center bg-gray-400 rounded"  id="">
-                <br>
-                <label for="" class="underline">NOTES</label><br>
-                <textarea name="" id="" cols="30" class="text-center bg-gray-400 rounded">YERRRRRR</textarea>
-                <button type="submit" class="w-20 border rounded bg-yellow-300 mt-3">Submit</button>
-            </form>
-        </div>
+     <!-- INVENTORY TRACKER -->
+<div class="hidden mb-10 mt-2 rounded" id="InventoryTracker">
+    <h3 class="font-bold text-center text-2xl">Inventory Tracker <i class="fa-solid fa-message-exclamation"></i></h3>
+
+    <!-- Inventory Form -->
+    <form id="inventoryForm" class="pl-4 pr-4 pt-2 pb-2 w-69 shadow-xl/60 rounded text-center">
+        <label class="underline">ITEMS NAME</label><br>
+        <input type="text" id="itemName" class="text-center bg-gray-400 rounded" placeholder="Tortilla Packs"><br>
+
+        <label class="underline">CATEGORY</label><br>
+        <select id="category" class="text-center bg-gray-400">
+            <option value="Food">Food</option>
+            <option value="Tools">Tools</option>
+            <option value="Packaging">Packaging</option>
+        </select><br>
+
+        <label class="underline">QUANTITY IN STOCK</label><br>
+        <input type="text" id="quantity" class="text-center bg-gray-400 rounded" placeholder="120 units"><br>
+
+        <label class="underline">UNIT</label><br>
+        <input type="text" id="unit" class="text-center bg-gray-400 rounded" placeholder="packs, lbs, gallons"><br>
+
+        <label class="underline">PURCHASE COST PER UNIT</label><br>
+        <input type="text" id="cost" class="text-center bg-gray-400 rounded" placeholder="$5.00"><br>
+
+        <label class="underline">SUPPLIER/VENDOR</label><br>
+        <input type="text" id="vendor" class="text-center bg-gray-400 rounded" placeholder="Jetro, Bronx"><br>
+
+        <label class="underline">PURCHASE DATE</label><br>
+        <input type="date" id="purchaseDate" class="text-center bg-gray-400 rounded"><br>
+
+        <label class="underline">RESTOCK LEVEL</label><br>
+        <input type="number" id="restockLevel" class="text-center bg-gray-400 rounded" placeholder="20"><br>
+
+        <label class="underline">LAST UPDATED</label><br>
+        <input type="date" id="lastUpdated" class="text-center bg-gray-400 rounded"><br>
+
+        <label class="underline">NOTES</label><br>
+        <textarea id="notes" cols="30" class="text-center bg-gray-400 rounded">YERRRRRR</textarea><br>
+
+        <button type="submit" class="w-20 border rounded bg-yellow-300 mt-3">Submit</button>
+    </form>
+
+    <!-- Inventory Slideshow -->
+    <div id="inventoryCards" class="mt-6 flex flex-col items-center gap-4"></div>
+</div>
         <!--  -->
-        <!-- Sales Tracker -->
-        <div class="hidden mb-10 mt-2 rounded" id="SalesTracker">
-            <!-- Track how much you're selling and to whom -->
-            <h3 class="font-bold text-center text-2xl">Sales Tracker</h3>
-            <form action="" class="pl-4 pr-4 pt-2 pb-2 w-69 shadow-xl/60  rounded text-center">
-                <label for="" class="underline">DATE</label><br>
-                <input type="date" class="text-center bg-gray-400 rounded">
-                <br>
-                <label for="" class="underline">ITEMS SOLD</label><br>
-                <!-- Product or service name	 -->
-                <input type="text" class="text-center bg-gray-400 rounded" placeholder="Beef Tacos (20ct)">
-                <br>
-                <label for="" class="underline">QUANTITY SOLD</label><br>
-                <!-- Number of units -->
-                <input type="number" class="text-center bg-gray-400 rounded" min="1" placeholder="1">
-                <br>
-                <label for="" class="underline">PRICE PER UNIT</label><br>
-                <input type="text" class="text-center bg-gray-400 rounded" placeholder="$25.00">
-                <br>
-                <label for="" class="underline">TOTAL SALES</label><br>
-                <!-- Auto-calculated	 -->
-                <input type="text" class="text-center bg-gray-400 rounded" placeholder="$75.00">
-                <br>
-                <label for="" class="underline">CUSTOMER NAME</label><br>
-                <input type="text" class="text-center bg-gray-400 rounded" placeholder="Maria Gonzalez">
-                <br>
-                <label for="" class="underline">PAYMENT METHOD</label><br>
-                <select name="" id="" class="text-center bg-gray-400 rounded">
-                    <optgroup >
-                        <option value="">Cash</option>
-                        <option value="">Card</option>
-                        <option value="">Zelle</option>
-                    </optgroup>
-                </select>        
-                <br>
-                <label for="" class="underline">RECEIPT ISSUED</label><br>
-                <select name="" id="" class="text-center bg-gray-400 rounded">
-                    <optgroup label="Receipt Issued">
-                        <option value="">No</option>
-                        <option value="">Yes</option>
-                    </optgroup>
-                </select>    
-                <br>
-                <label for="" class="underline">NOTES</label><br>
-                <textarea name="" id="" cols="30" class="text-center bg-gray-400 rounded">YERRRRRR</textarea>
-                <button type="submit" class="w-20 border rounded bg-yellow-300 mt-3">Submit</button>                
-            </form>
-        </div>
+    <!-- SALES TRACKER -->
+<div class="hidden mb-10 mt-2 rounded" id="SalesTracker">
+    <h3 class="font-bold text-center text-2xl">Sales Tracker</h3>
+
+    <!-- Sales Form -->
+    <form id="salesForm" class="pl-4 pr-4 pt-2 pb-2 w-69 shadow-xl/60 rounded text-center">
+        <label class="underline">DATE</label><br>
+        <input type="date" id="saleDate" class="text-center bg-gray-400 rounded"><br>
+
+        <label class="underline">ITEMS SOLD</label><br>
+        <input type="text" id="itemsSold" class="text-center bg-gray-400 rounded" placeholder="Beef Tacos (20ct)"><br>
+
+        <label class="underline">QUANTITY SOLD</label><br>
+        <input type="number" id="quantitySold" class="text-center bg-gray-400 rounded" min="1" placeholder="1"><br>
+
+        <label class="underline">PRICE PER UNIT</label><br>
+        <input type="text" id="pricePerUnit" class="text-center bg-gray-400 rounded" placeholder="$25.00"><br>
+
+<label class="underline">CUSTOMER NAME</label><br>
+<input type="text" id="customerName" class="text-center bg-gray-400 rounded" placeholder="Maria Gonzalez"><br>
+
+<label class="underline">CUSTOMER ADDRESS</label><br>
+<input type="text" id="customerAddress" class="text-center bg-gray-400 rounded" placeholder="123 Main St, Bronx, NY"><br>
+
+<label class="underline">CUSTOMER PHONE</label><br>
+<input type="tel" id="customerPhone" class="text-center bg-gray-400 rounded" placeholder="(555) 123-4567"><br>
+
+        <label class="underline">PAYMENT METHOD</label><br>
+        <select id="paymentMethod" class="text-center bg-gray-400 rounded">
+            <option value="Cash">Cash</option>
+            <option value="Card">Card</option>
+            <option value="Zelle">Zelle</option>
+        </select><br>
+
+        <label class="underline">RECEIPT ISSUED</label><br>
+        <select id="receiptIssued" class="text-center bg-gray-400 rounded">
+            <option value="No">No</option>
+            <option value="Yes">Yes</option>
+        </select><br>
+
+        <label class="underline">NOTES</label><br>
+        <textarea id="notes" cols="30" class="text-center bg-gray-400 rounded">YERRRRRR</textarea><br>
+
+        <button type="submit" class="w-20 border rounded bg-yellow-300 mt-3">Submit</button>
+    </form>
+
+    <!-- Total Sales Counter -->
+    <div id="salesTotalDisplay" class="mt-4 font-bold text-center bg-yellow-100 py-2 rounded">
+        Total Sales: $0.00
+    </div>
+    <!-- Sales Cards Slideshow -->
+    <div id="salesCards" class="mt-6 flex flex-col items-center gap-4"></div>
+
+</div>
         <!--  -->
         <!-- Task Manager -->
-        <div id="To-Do_TaskManager" class="hidden mb-10 mt-2 rounded">
-            <!-- Stay organized with daily business tasks and deadlines -->
-            <h3 class="font-bold text-center text-2xl">To-Do / Task Manager</h3>
-            <form action="" class="pl-4 pr-4 pt-2 pb-2 w-69 shadow-xl/60  rounded text-center">
-                <label for="" class="underline">TASK NAME</label><br>
-                <!-- What needs to be done	 -->
-                <input type="text" class="text-center bg-gray-400 rounded" placeholder="Buy produce from Jetro">
-                <br>
-                <label for="" class="underline">CATEGORY/TYPE</label><br>
-                <!-- What needs to be done	 -->
-                <select name="" id="" class="text-center bg-gray-400 rounded">
-                    <optgroup label="Category or Type">
-                        <option value="">Business</option>
-                        <option value="">Personal</option>
-                        <option value="">School</option>
-                        <option value="">Custome</option>
-                    </optgroup>
-                </select>    
-                <br> 
-                <label for="" class="underline">DUE DATE</label><br>
-                <!-- When it should be completed	 -->
-                <input type="date" class="text-center w-25 bg-gray-400 rounded border">
-                <input type="time" class="text-center w-20 bg-gray-400 rounded border">
-                <br>
-                <label for="" class="underline">PRIOTITY</label><br>
-                <!-- Low, Medium, High -->
-                <select name="" id="" class="text-center bg-gray-400 rounded">
-                    <optgroup label="Priority">
-                        <option value="">Low</option>
-                        <option value="">Medium</option>
-                        <option value="">High</option>
-                    </optgroup>
-                </select>                    
-                <br>
-                <label for="" class="underline">STATUS</label><br>
-                <!-- Pending / In Progress / Completed	 -->
-                <select name="" id="" class="text-center bg-gray-400 rounded">
-                    <optgroup label="Status">
-                        <option value="">Pending</option>
-                        <option value="">In-Progress</option>
-                        <option value="">Completed</option>
-                    </optgroup>
-                </select>                    
-                <br>
-                <label for="" class="underline">COMPLETION DATE</label>
-                <!-- When it was marked done -->
-                <input type="date" class="text-center bg-gray-400 rounded">
-                <br>
-                <label for="" class="underline">NOTES</label><br>
-                <textarea name="" id="" cols="30" class="text-center bg-gray-400 rounded" placeholder="Don't forget Roma tomatoes"></textarea>
-                <button type="submit" class="w-20 border rounded bg-yellow-300 mt-3">Submit</button>    
-            </form>
-        </div>
+         <!-- To-Do / Task Manager -->
+<div id="To-Do_TaskManager" class="hidden mb-10 mt-2 rounded">
+    <h3 class="font-bold text-center text-2xl">To-Do / Task Manager</h3>
+
+    <!-- Form -->
+    <form id="todoForm"  class="pl-4 pr-4 pt-2 pb-2 w-69 shadow-xl/60  rounded text-center">
+        <label class="underline">TASK NAME</label><br>
+        <input type="text" id="taskName" class="text-center bg-gray-400 rounded" placeholder="Buy produce from Jetro"><br>
+
+        <label class="underline">CATEGORY/TYPE</label><br>
+        <select id="category" class="text-center bg-gray-400 rounded">
+            <option value="Business">Business</option>
+            <option value="Personal">Personal</option>
+            <option value="School">School</option>
+            <option value="Custom">Custom</option>
+        </select><br>
+
+        <label class="underline">DUE DATE</label><br>
+        <input type="date" id="dueDate" class="text-center w-25 bg-gray-400 rounded border">
+        <input type="time" id="dueTime" class="text-center w-20 bg-gray-400 rounded border"><br>
+
+        <label class="underline">PRIORITY</label><br>
+        <select id="priority" class="text-center bg-gray-400 rounded">
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+        </select><br>
+
+        <label class="underline">STATUS</label><br>
+        <select id="status" class="text-center bg-gray-400 rounded">
+            <option value="Pending">Pending</option>
+            <option value="In-Progress">In-Progress</option>
+            <option value="Completed">Completed</option>
+        </select><br>
+
+        <label class="underline">COMPLETION DATE</label><br>
+        <input type="date" id="completionDate" class="text-center bg-gray-400 rounded"><br>
+
+        <label class="underline">NOTES</label><br>
+        <textarea id="notes" cols="30" class="text-center bg-gray-400 rounded" placeholder="Don't forget Roma tomatoes"></textarea><br>
+
+        <button type="submit" class="w-20 border rounded bg-yellow-300 mt-3">Submit</button>
+    </form>
+    <!-- Total Tasks -->
+    <div id="totalTasks" class="mt-4 font-bold text-center bg-yellow-100 py-2  rounded">
+        Total Tasks: 0
+    </div>
+    <!-- Task Cards -->
+    <div id="taskCards" class="mt-6 flex flex-col gap-4"></div>
+
+
+</div>
+
         <!--  -->
         <!-- Client Vendor Log -->
         <div id="ClientVendorLog" class="hidden mb-10 mt-2 rounded">
