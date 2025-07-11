@@ -56,7 +56,7 @@
             const date = document.getElementById('dateFT').value;
             const category = document.getElementById('categoryTF').value;
             const notes = document.getElementById('notesFT').value;
-
+            
             if (!type || !amount || !date) {
                 alert('Please fill out required fields');
                 return;
