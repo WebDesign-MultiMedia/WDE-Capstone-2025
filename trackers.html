@@ -7,6 +7,9 @@
       <link rel="stylesheet" href="input.css">
       <!-- Awsome Font -->
        <script src="https://kit.fontawesome.com/2b46095725.js" crossorigin="anonymous"></script>
+       <!-- SweetAlert2 -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.22.2/dist/sweetalert2.all.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.22.2/dist/sweetalert2.min.css">
     <title>Tracker World</title>
 </head>
 <body class="bg-blue-700">
@@ -90,19 +93,19 @@
                 <button type="submit" class="w-20 border rounded bg-yellow-300 mt-2 mb-2">Submit</button>
             </form>
             <div class=" flex flex-col  w-80 mt-5 rounded  shadow-xl/60  text-center">
-                <p class="text-green-500  underline "> TOTAL INCOME: $<span id="totalIncome">0</span></p>
-                <p class="text-red-500 underline ">TOTAL EXPENSE: $<span id="totalExpense">0</span></p>
-                <p class="text-yellow-500 bold underline ">BALANCE: $<span id="balance">0</span></p>
+                <p class="text-white font-bold"> TOTAL INCOME: $<span class="text-green-500  underline" id="totalIncome">0</span></p>
+                <p class="text-white font-bold">TOTAL EXPENSE: $<span class="text-red-800 underline" id="totalExpense">0</span></p>
+                <p class="text-white font-bold">BALANCE: $<span class="text-yellow-500 underline"  id="balance">0</span></p>
             </div>
             <div class=" mt-5 shadow-xl/60 w-80 rounded text-center">
                 <table class="">
-                    <thead class="text-white">
+                    <thead class="text-gray-200 text-center">
                     <th class="underline">Date</th>
                     <th class="underline pl-2">Description</th>
                     <th class="underline pl-2">Type</th>
                     <th class="underline pl-2">Amount</th>
                     </thead>
-                    <tbody id="financeTableBody" class="text-white"></tbody>
+                    <tbody id="financeTableBody" class="bg-gray-300 text-black"></tbody>
                 </table>
             </div>
         </div>
@@ -219,63 +222,59 @@
             </div> -->
         </div>
         <!--  -->
-        <div class="hidden mb-10 mt-2 rounded" id="PaymentTracker">
-            <!-- Log payments received or due, manage cash flow -->
-            <h3 class="font-bold text-center text-2xl">Payment Tracker <i class="fa-solid fa-message-exclamation"></i></h3>
-            <form action="" class="pl-4 pr-4 pt-2 pb-2 w-69 shadow-xl/60  rounded text-center">
-                <label for="" class="underline">DATE</label><br>
-                <!-- Payment date or due date -->
-                <input type="date" class="text-center bg-gray-400 rounded" placeholder="Date of payment">
-                <br>
-                <label for="" class="underline">PAYMENT TYPE</label><br>
-                <!-- 	Incoming or outgoing // Incoming (from customer) / Outgoing (to vendor) -->
-                 <select name="" id="" class="text-center w-50 border bg-gray-400 rounded">
-                    <optgroup label="Payment Type" >
-                        <option value="">Income "From Customer"</option>
-                        <option value="">Outgoing "To Vendor"</option>
-                    </optgroup>
-                 </select>
-                <br>
-                <label for="" class="underline">VENDOR / CLIENT</label><br>
-                <!-- Who you're paying or getting paid from -->
-                <input type="text" class="text-center bg-gray-400 rounded" placeholder="Jetro Foods or John Smith">
-                <br>
-                <label for="" class="underline">ITEMS/SERVICE</label><br>
-                <!-- 	What it’s for -->
-                <input type="text" class="text-center bg-gray-400 rounded" placeholder="200 Tortilla Packs">
-                <br>
-                <label for="" class="underline">AMOUNT</label><br>
-                <!-- 	Total payment amount -->
-                <input type="number" class="text-center w-20 bg-gray-400 rounded" placeholder="$325.00">
-                <br>
-                <label for="" class="underline">PAYMENT METHOD</label><br>
-                <!-- How it was paid -->
-                <select name="" id="" class="text-center bg-gray-400 rounded">
-                    <optgroup >
-                        <option value="">Cash</option>
-                        <option value="">Card</option>
-                        <option value="">Zelle</option>
-                        <option value="">Check</option>
-                        <option value="">Bank Transfer</option>
-                    </optgroup>
-                </select>                <br>
-                <label for="" class="underline">STATUS</label><br>
-                <!-- Paid / Pending / Overdue -->
-                <select name="" id="" class="text-center bg-gray-400 rounded">
-                    <optgroup label="Status">
-                        <option value="">Paid</option>
-                        <option value="">Pending</option>
-                        <option value="">Overdue</option>
-                    </optgroup>
-                </select>       
-                <br>
-                <label for="" class="underline">RECEIPT/FILE</label><br>
-                <input type="file" class="text-center w-50 border bg-gray-400 rounded" accept="image/png, image/jpeg"><br>
-                <label for="">Notes</label>
-                <textarea name="" id="" cols="30" placeholder="Example: Paid half upfront" class="text-center w-50 border bg-gray-400 rounded"></textarea>
-                <button type="submit" class="w-20 border rounded bg-yellow-300 mt-3">Submit</button>
-            </form>
-        </div>
+
+<!-- Payment Tracker Container -->
+<div class="hidden mb-10 mt-2 rounded" id="PaymentTracker">
+    <h3 class="font-bold text-center text-2xl">Payment Tracker <i class="fa-solid fa-message-exclamation"></i></h3>
+    
+    <!-- Form -->
+    <form id="paymentForm" class="pl-4 pr-4 pt-2 pb-2 w-69 shadow-xl/60 rounded  text-center">
+        <label class="underline">DATE</label><br>
+        <input type="date" id="date" class="text-center bg-gray-400 rounded"><br>
+
+        <label class="underline">PAYMENT TYPE</label><br>
+        <select id="paymentType" class="text-center w-50 border bg-gray-400 rounded">
+            <option value="Income">Income "From Customer"</option>
+            <option value="Outgoing">Outgoing "To Vendor"</option>
+        </select><br>
+
+        <label class="underline">VENDOR / CLIENT</label><br>
+        <input type="text" id="vendorClient" class="text-center bg-gray-400 rounded"><br>
+
+        <label class="underline">ITEMS/SERVICE</label><br>
+        <input type="text" id="itemsService" class="text-center bg-gray-400 rounded"><br>
+
+        <label class="underline">AMOUNT</label><br>
+        <input type="number" id="amount" class="text-center w-20 bg-gray-400 rounded"><br>
+
+        <label class="underline">PAYMENT METHOD</label><br>
+        <select id="paymentMethod" class="text-center bg-gray-400 rounded">
+            <option value="Cash">Cash</option>
+            <option value="Card">Card</option>
+            <option value="Zelle">Zelle</option>
+            <option value="Check">Check</option>
+            <option value="BankTransfer">Bank Transfer</option>
+        </select><br>
+
+        <label class="underline">STATUS</label><br>
+        <select id="status" class="text-center bg-gray-400 rounded">
+            <option value="Paid">Paid</option>
+            <option value="Pending">Pending</option>
+            <option value="Overdue">Overdue</option>
+        </select><br>
+
+        <label>Notes</label><br>
+        <textarea id="notes" cols="30" class="text-center border bg-gray-400 rounded"></textarea><br>
+
+        <button type="submit" class="w-20 border rounded bg-yellow-300 mt-3">Submit</button>
+    </form>
+
+    <!-- Payment Record Cards -->
+    <div id="paymentCards" class="mt-6 space-y-4 ">
+        <!-- Cards will be dynamically inserted here -->
+    </div>
+</div>
+
         <!--  -->
         <!-- Inevntory Tracker -->
         <div class="hidden mb-10 mt-2 rounded" id="InventoryTracker">
